@@ -93,3 +93,163 @@ margin-bottom:-9999px;同时父元素设置overflow:hidden;
 ## 去除字符串首尾空格
 
 > 使用正则(^\s *)|(\s *$  )即可
+
+## 性能优化
+
+减少HTTP请求
+
+使用内容发布网络（CDN）
+
+添加本地缓存
+
+压缩资源文件
+
+将CSS样式表放在顶部，把javascript放在底部（浏览器的运行机制决定）
+
+避免使用CSS表达式
+
+减少DNS查询
+
+使用外部javascript和CSS
+
+避免重定向
+
+图片lazyLoad
+
+## 能来讲讲JS的语言特性吗
+
+运行在客户端浏览器上；
+
+不用预编译，直接解析执行代码；
+
+是弱类型语言，较为灵活；
+
+与操作系统无关，[跨平台](https://www.baidu.com/s?wd=%E8%B7%A8%E5%B9%B3%E5%8F%B0&tn=24004469_oem_dg&rsv_dl=gh_pl_sl_csd)的语言；
+
+脚本语言、解释性语言
+
+## JS实现跨域
+
+JSONP：通过动态创建script，再请求一个带参网址实现跨域通信。
+
+document.domain + iframe跨域：两个页面都通过js强制设置document.domain为基础主域，就实现了同域。
+
+location.hash + iframe跨域：a欲与b跨域相互通信，通过中间页c来实现。 三个页面，不同域之间利用iframe的location.hash传值，相同域之间直接js访问来通信。
+
+window.name + iframe跨域：通过iframe的src属性由外域转向本地域，跨域数据即由iframe的window.name从外域传递到本地域。
+
+postMessage跨域：可以跨域操作的window属性之一。
+
+CORS：服务端设置Access-Control-Allow-Origin即可，前端无须设置，若要带cookie请求，前后端都需要设置。
+
+代理跨域：启一个代理服务器，实现数据的转发
+
+参考<https://segmentfault.com/a/1190000011145364>
+
+
+
+##  什么是按需加载
+
+当用户触发了动作时才加载对应的功能。触发的动作，是要看具体的业务场景而言，包括但不限于以下几个情况：鼠标点击、输入文字、拉动滚动条，鼠标移动、窗口大小更改等。加载的文件，可以是JS、图片、CSS、HTML等。
+
+## 说一下什么是virtual dom
+
+用JavaScript 对象结构表示 DOM 树的结构；然后用这个树构建一个真正的 DOM 树，插到文档当中 当状态变更的时候，重新构造一棵新的对象树。然后用新的树和旧的树进行比较，记录两棵树差异 把所记录的差异应用到所构建的真正的DOM树上，视图就更新了。Virtual DOM 本质上就是在 JS 和 DOM 之间做了一个缓存。
+
+## JS中继承实现的几种方式
+
+1. 原型链继承，原型链继承简单易于实现，缺点是来自原型对象的所有属性被所有实例共享，无法实现多继承
+
+   ```javascript
+   function Cat(){ 
+   }
+   Cat.prototype = new Animal();
+   ```
+
+   
+
+2. 构造继承，可以实现多继承，通过call多个父类对象，缺点只能继承父类的实例属性和方法，不能继承原型属性和方法，无法实现函数复用
+
+   ```javascript
+   function Cat(name){
+     Animal.call(this);
+     this.name = name || 'Tom';
+   }
+   ```
+
+   
+
+3. 实例继承，实例继承的特点是不限制调用方法，缺点是例是父类的实例，不是子类的实例，不支持多继承
+
+   ```javascript 
+   function Cat(name){
+     var instance = new Animal();
+     instance.name = name || 'Tom';
+     return instance;
+   }
+   ```
+
+   
+
+4. 拷贝继承：特点：支持多继承，缺点：效率较低，内存占用高
+
+   ```javascript
+   function Cat(name){
+     var animal = new Animal();
+     for(var p in animal){
+       Cat.prototype[p] = animal[p];
+     }
+     Cat.prototype.name = name || 'Tom';
+   }
+   
+   ```
+
+   
+
+5. 组合继承：通过调用父类构造，继承父类的属性并保留传参的优点 0
+
+   缺点：调用了两次父类构造函数，生成了两份实例
+
+   ```javascript
+   function Cat(name){
+     Animal.call(this);
+     this.name = name || 'Tom';
+   }
+   Cat.prototype = new Animal();
+   // 组合继承也是需要修复构造函数指向的。
+   Cat.prototype.constructor = Cat;
+   ```
+
+   
+
+6. 寄生组合继承：通过寄生方式，砍掉父类的实例属性，这样，在调用两次父类构造的时候，就不会初始化两次实例方法/属性，避免的组合继承的缺点
+
+   ```javascript
+     function inherit(sub, sup) {
+           var pro = Object(sup.prototype);
+           console.log(pro)
+           pro.constructor = sub;
+           sub.prototype = pro;
+       }
+   
+       function Super(name) {
+           this.name = name;
+           this.colors = ['red', 'blue'];
+       }
+       Super.prototype.sayName = function () {
+           alert(this.name);
+       }
+   
+       function Sub(name, age) {
+           Super.call(this, name);
+           this.age = age;
+       }
+       inherit(Sub, Super);
+       Sub.prototype.sayAge = function () {
+           alert(this.age);
+       }
+       var son = new Sub('李四', 29);
+       son.sayAge();
+   ```
+
+   
