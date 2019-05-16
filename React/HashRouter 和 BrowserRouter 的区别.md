@@ -4,8 +4,6 @@
 
 重点说明：哈希历史记录不支持`location.key`或`location.state`
 
-
-
 ## BrowserRouter
 
 使用HTML5历史API（ pushState，replaceState和popstate事件），让页面的UI同步与URL

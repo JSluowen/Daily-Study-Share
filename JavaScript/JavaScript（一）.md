@@ -41,8 +41,11 @@ scrollTop：滚动后被隐藏的高度，获取对象相对于由offsetParent�
 
 ## 异步加载js的方法
 
-1. defer：只支持IE，如果您的脚本不会改变文档的内容，可将 defer 属性加入到<script>标签中
-2. async，HTML5属性仅适用于外部脚本，并且如果在IE中，同时存在defer和async，那么defer的优先级比较高，脚本将在页面完成时执行。
+1. defer：只支持IE，如果您的脚本不会改变文档的内容，可将 defer 属性加入到<script>标签中，
+
+   在页面完全加载后才执行。
+
+2. async，HTML5属性仅适用于外部脚本，并且如果在IE中，同时存在defer和async，那么defer的优先级比较高，脚本将在页面完成时执行。下载完毕后立刻执行
 
 ## Ajax解决浏览器缓存问题
 
