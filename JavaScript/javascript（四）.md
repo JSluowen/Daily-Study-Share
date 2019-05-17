@@ -48,3 +48,40 @@ test.hasOwnProperty('toString')    //false  原型链上属性
 ```
 
 > 　可以看到，只有自身存在该属性时，才会返回true。适用于只判断自身属性的场景。
+
+
+
+## 创建DOM节点，添加，删除，替换，克隆对应的 api 是什么
+
+### 创建节点
+
+document.createElement();*//创建元素*
+
+document.createTextNode();*//创建文本节点*
+
+### 添加节点
+
+var ele = document.getElementById("my_div");
+var oldEle = document.createElement("p");
+var newEle=document.createElement("div");
+
+ele.appendChild(oldEle);
+
+### 移除
+
+ele.removeChild(oldEle);
+
+### 替换
+
+ele.replaceChild(newEle,oldEle)
+
+### 克隆
+
+var cEle = oldEle.cloneNode(true);*//深度复制，复制节点下面所有的子节点*
+
+cEle = oldEle.cloneNode(false);*//只复制当前节点，不复制子节点*
+
+## 正则贪婪模式匹配 非贪婪模式匹配 
+
+> 贪婪模式在整个表达式匹配成功的前提下，尽可能多的匹配，而非贪婪模式在整个表达式匹配成功的前提下，尽可能少的匹配
+
