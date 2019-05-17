@@ -8,7 +8,7 @@
 
 > react性能优化非常重要的一环。组件接受新的state或者props时调用，我们可以设置在此对比前后两个props和state是否相同，如果相同则返回false阻止更新，因为相同的属性状态一定会生成相同的dom树，这样就不需要创造新的dom树和旧的dom树进行diff算法对比，节省大量性能，尤其是在dom结构复杂的时候
 
-## react的组件是通过什么去判断是否刷新的
+## 你理解的React
 
 1. React是用于构建用户界面的JavaScript库。
 
@@ -16,6 +16,22 @@
 3. 组件逻辑使用 JavaScript 编写而非模版，因此你可以轻松地在应用中传递数据
 4. 为应用程序中的每个状态建立的视图，并且React将在数据更改时进行更新，呈现正确的组件
 
-## 说说自己理解的react
+## react 生命周期函数 16.0以后的有什么区别，说一下新的生命周期函数
 
-通过state是否改变
+### getDerivedStateFromProps
+
+1. getDerivedStateProps 生命周期函数是一个静态函数，所以函数体内不能访问this。
+2. 只要进行挂载或更新组件，都会调用 getDerivedStateFromProps 生命周期函数。
+
+### getSnapshotBeforeUpdate
+
+getSnapshotBeforeUpdate。这函数会在render之后执行，而执行之时DOM元素还没有被更新，给了一个机会去获取DOM信息，计算得到一个snapshot，这个snapshot会作为componentDidUpdate的第三个参数传入
+
+### React合成事件和原生事件区别
+
+React合成事件一套机制：React并不是将click事件直接绑定在dom上面，而是采用**事件冒泡**的形式冒泡到document上面，然后React将事件封装给正式的函数处理运行和处理。
+
+## 什么是“纯函数”
+
+- 纯函数是指 不依赖于且不改变它作用域之外的变量状态 的函数。
+- 简单来说，一个函数的返回结果只依赖于它的参数，并且在执行过程里面没有副作用，我们就把这个函数叫做纯函数。
