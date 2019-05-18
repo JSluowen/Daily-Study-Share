@@ -1,4 +1,4 @@
-##　实现sleep函数
+## 实现sleep函数
 
 ```javascript
 function sleep(d){
