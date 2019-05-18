@@ -61,3 +61,7 @@ close callbacks 阶段执行 close 事件
 
 ![img](https://user-gold-cdn.xitu.io/2018/11/14/16710fb80dd42d27?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
 
+### 参考文献
+
+[这一次，彻底弄懂 JavaScript 执行机制](https://juejin.im/post/59e85eebf265da430d571f89)
+

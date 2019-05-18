@@ -85,3 +85,56 @@ cEle = oldEle.cloneNode(false);*//只复制当前节点，不复制子节点*
 
 > 贪婪模式在整个表达式匹配成功的前提下，尽可能多的匹配，而非贪婪模式在整个表达式匹配成功的前提下，尽可能少的匹配
 
+## FileReader
+
+> `FileReader` 对象允许Web应用程序异步读取存储在用户计算机上的文件（或原始数据缓冲区）的内容，使用 [`File`](https://developer.mozilla.org/zh-CN/docs/Web/API/File) 或 [`Blob`](https://developer.mozilla.org/zh-CN/docs/Web/API/Blob) 对象指定要读取的文件或数据。
+
+## Base64编码的原理
+
+Base64可以将ASCII字符串或者是二进制编码成只包含A—Z，a—z，0—9，+，/ 这64个字符（ 26个大写字母，26个小写字母，10个数字，1个+，一个 / 刚好64个字符）。
+
+##  Promise 是什么，Promise.all() 和 Promise.race() 怎么用
+
+### Promise.all()
+
+> promise.all主要用于一次性执行多个异步方法，并且按传入顺序执行
+
+```javascript
+function fun1(num = -1) {
+    // 在fun1中返回一个promise对象
+    return new Promise(function(resolve, reject) {
+        // 为了体现是异步接口，这里使用一个定时器，延迟3秒
+        setTimeout(resolve, 3000, 'fun1');
+    })
+};
+function fun2(num2 = 200) {
+    // 在fun2中也返回一个promise对象
+    return new Promise(function(resolve, reject) {
+        // 为了和fun1区分开来，fun2延迟1秒
+        setTimeout(resolve, 1000, 'fun2');
+    })
+}
+// 由于fun1和fun2是方法，所以使用fun1()执行该方法
+Promise.all([fun1(), fun2()]).then(function(result) {
+    console.log(result) // 输入应该为 ['fun1','fun2']
+})
+```
+
+### Promise.race()
+
+> 在执行多个异步操作中，只保留取第一个执行完成的异步操作的结果，其他的方法仍在执行，不过执行结果会被抛弃
+
+```javascript
+var fun1 = new Promise(function(resolve, reject) {
+    setTimeout(resolve, 3000, 'fun1');
+});
+var fun2 = new Promise(function(resolve, reject) {
+    setTimeout(resolve, 200, 'fun2');
+});
+// *注：这里使用的示例和promise.all用的示例类似，
+// 可是没有用()执行，因为fun1就是一个promise对象，不需要执行
+Promise.race([fun1, fun2]).then(function(result) {
+    console.log(result); // 'fun2'   因为fun2比较早执行结束
+});
+```
+
