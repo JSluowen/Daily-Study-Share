@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 第一种方法
+        function partition(arr, from, to) {
+            var i = from;
+            var j = to;
+            var key = arr[from];
+            while (i < j) {
+                while (arr[j] > key && i < j) {
+                    j--;
+                }
+                while (arr[i] <= key && i < j) {
+                    i++;
+                }
+                if (i < j) {
+                    [arr[i], arr[j]] = [arr[j], arr[i]]
+                }
+            }
+            arr[from] = arr[i];
+            arr[i] = key;
+            return i
+        }
+
+        // 第二种方法
+        function partition(arr, l, r) {
+            var i = l,
+                j = r;
+            var item = arr[l];
+            while (i < j) {
+                while (j > l) {
+                    if (arr[j] > item && i < j) {
+                        j--;
+                    } else {
+                        arr[i] = arr[j];
+                        break;
+                    }
+                }
+                while (i < r) {
+                    if (arr[i] < item && i < j) {
+                        i++;
+                    } else {
+                        arr[j] = arr[i];
+                        break;
+                    }
+                }
+            }
+            arr[i] = item;
+            return i;
+        }
+
+        function quickSort(arr, from, to) {
+            if (from > to) return;
+            var i = partition(arr, from, to)
+            quickSort(arr, from, i - 1);
+            quickSort(arr, i + 1, to);
+        }
+        var arr = [4, 8, 7, 2, 3, 6, 9, 10, 12];
+        quickSort(arr, 0, arr.length - 1);
+        console.log(arr)
+    </script>
+</body>
+
+</html>
