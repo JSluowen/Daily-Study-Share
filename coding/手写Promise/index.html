@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const PENDING = 'pending';
+        const RESOLVED = 'resolved';
+        const REJECTED = 'rejected';
+
+        function MyPromise(fn) {
+
+            const that = this;
+            that.state = PENDING;
+            that.value = null;
+            that.resolvedCallbacks = [];
+            that.rejectedCallbacks = [];
+
+            function resolved(value) {
+                if (that.state == PENDING) {
+                    that.value = value;
+                    that.state = RESOLVED;
+                    that.resolvedCallbacks.map(cb => cb(that.value));
+                }
+            }
+
+            function rejected(value) {
+                if (that.state == PENDING) {
+                    that.value = value;
+                    that.state = REJECTED;
+                    that.rejectedCallbacks.map(cb => cb(that.value));
+                }
+            }
+            try {
+                fn(resolved, rejected)
+            } catch (err) {
+                rejected(err);
+            }
+        }
+
+        MyPromise.prototype.then = function (onFulfilled, onRejected) {
+            const that = this;
+            onFulfilled = typeof onFulfilled === 'function' ? onFulfilled : v => v;
+            onRejected = typeof onRejected === 'function' ? onRejected : r => {
+                throw r
+            };
+            if (that.state === PENDING) {
+                that.resolvedCallbacks.push(onFulfilled);
+                that.rejectedCallbacks.push(onRejected);
+            }
+            if (that.state === RESOLVED) {
+                onFulfilled(that.value)
+            }
+            if (that.state === REJECTED) {
+                onRejected(that.value);
+            }
+        }
+
+        function add(value) {
+            return new MyPromise((resolve, rejected) => {
+                setTimeout(() => {
+                    console.log('开始二个执行')
+                    console.log(value)
+                    resolve(2)
+                }, 2000)
+            })
+        }
+
+        new MyPromise((resolve, rejected) => {
+            console.log('开始执行')
+            setTimeout(() => {
+                console.log('获取到结果')
+                resolve(1)
+            }, 1000)
+        }).then(add)
+    </script>
+</body>
+
+</html>
