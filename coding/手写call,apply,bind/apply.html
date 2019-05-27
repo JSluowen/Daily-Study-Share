@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        Function.prototype.myApply = function (context) {
+            context = context || window;
+            context.fn = this;
+            let result;
+            if (arguments[1]) {
+                result = context.fn(...arguments[1])
+            } else {
+                result = context.fn();
+            }
+            delete context;
+            return result;
+        }
+        var Person = function (name, age) {
+            this.name = name;
+            this.age = age;
+        };
+        var Girl = function (name, age) {
+            Person.myApply(this, [name, age]);
+        };
+        var g = new Girl('zhagnsan', 29);
+        console.log(g.name);
+    </script>
+</body>
+
+</html>

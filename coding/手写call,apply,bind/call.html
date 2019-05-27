@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        Function.prototype.mycall = function (context) {
+            if (typeof this !== 'function') {
+                throw new TypeError('这不是一个函数');
+            }
+            context = context || window;
+            var args = [...arguments].splice(1);
+            context.fn = this;
+            var result = context.fn(...args);
+            delete context;
+            return result;
+        }
+
+        var Person = function (name, age) {
+            this.name = name;
+            this.age = age;
+        };
+        var Girl = function (name, age) {
+            Person.mycall(this, name, age);
+        };
+        var g1 = new Girl('lisi', 29)
+        console.log(g1.name);
+    </script>
+</body>
+
+</html>

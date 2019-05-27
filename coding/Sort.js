@@ -16,8 +16,6 @@ function insertSort (arr){
 	}
 }
 
-
-
 function bubbleSort(arr){
 	for(let i = 0;i<arr.length;i++){
         let flag = false;

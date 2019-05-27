@@ -44,3 +44,13 @@ React合成事件一套机制：React并不是将click事件直接绑定在dom�
 
 3. #### shouldComponentUpdate 来比较前后两次props/state 是否改变，来决定是否重新渲染界面
 
+## React单向数据流
+
+1. React是单向数据流，数据主要从父节点传递到子节点
+2. 如果顶层（父级）的某个props改变了，React会重渲染所有的子节点。
+
+## React怎么判断什么时候该重新渲染组件？
+
+1. **只有在组件的state变化时才会出发组件的重新渲染**
+2. 
+

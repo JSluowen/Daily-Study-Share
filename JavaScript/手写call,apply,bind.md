@@ -6,7 +6,7 @@ Function.prototype.myCall = function(context){
         throw new TypeError('这不是一个函数');
     }
     context = context || window;
-    context.fn = this;
+    context.fn  = this;
     const args = [...arguments].slice(1);
     const result = context.fn(...args);
     delete context.fn;
@@ -24,7 +24,6 @@ Function.prototype.myApply = function(context){
     context = context || window;
     context.fn = this;
     let result;
-    console.log(arguments[1]);
     if(arguments[1]){
             result = context.fn(...arguments[1])
     }else{

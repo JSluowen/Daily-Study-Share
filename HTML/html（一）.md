@@ -67,9 +67,7 @@
 
 3.  rem是[CSS3](http://www.html5cn.org/portal.php?mod=list&catid=16)新增的一个相对单位,使用rem为元素设定字体大小时，仍然是相对大小，但相对的只是HTML根元素
 
-   
-
-## 常用的块级元素和行内元素
+ ## 常用的块级元素和行内元素
 
 **快级元素**：div、p、h1~h6、ul、ol、table、Html5新增加的（header、section、aside、footer）
 
