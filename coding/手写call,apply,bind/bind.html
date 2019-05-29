@@ -10,34 +10,24 @@
 
 <body>
     <script>
-        Function.prototype.myBind = function (context) {
-            if (typeof this !== 'function') {
-                return new TypeError('这不是一个函数')
-            }
-            const _this = this;
-            console.log("我是", _this)
-            const args = [...arguments].splice(1);
-            return function F() {
-                if (_this instanceof F) {
-                    console.log(123456)
-                    return new _this(...args, ...arguments);
-                }
-                return _this.apply(context, args.concat(...arguments));
-            }
+Function.prototype.myBind = function (context) {
+    if (typeof this !== 'function') {
+        return new TypeError('这不是一个函数')
+    }
+    const _this = this;
+    const args = [...arguments].splice(1);
+    return function F() {
+        if (this instanceof F) {
+            return new _this(...args, ...arguments);
         }
-        var json = {
-            name: 'zhangsan',
-            age: 29
-        }
-        var json1 = {
-            name: 'lisi'
-        }
-        var person = function () {
-            console.log(this.name);
-        }
-        var p = person.myBind(json);
-        p.myBind(json1);
-        console.log(p)
+        return _this.apply(context, args.concat(...arguments));
+    }
+}
+
+        function bar() {};
+        var bindFoo = bar.bind(null);
+        bindFoo.prototype.value = 1;
+        console.log(bar.prototype.value)
     </script>
 </body>
 

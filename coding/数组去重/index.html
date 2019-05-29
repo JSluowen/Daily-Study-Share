@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function unique(arr) {
+            let res = [];
+            for (var i = 0, arrLength = arr.length; i < arrLength; i++) {
+                for (var j = 0, resLen = res.length; j < resLen; j++) {
+                    if (arr[i] === res[j]) {
+                        break;
+                    }
+                }
+                if (j == resLen) {
+                    res.push(arr[i]);
+                }
+            }
+            return res;
+        }
+
+        function unique(arr) {
+            let res = [];
+            for (let i = 0; i < arr.length; i++) {
+                if (res.indexOf(arr[i]) === -1) {
+                    res.push(arr[i]);
+                }
+            }
+            return res;
+        }
+
+        function unique(arr) {
+            return Array.from(new Set(arr));
+        }
+
+        function unique(array) {
+            var obj = {};
+            return array.filter(function (item, index, array) {
+                return obj.hasOwnProperty(typeof item + JSON.stringify(item)) ? false : (obj[typeof item + JSON
+                    .stringify(item)] = true)
+            })
+        }
+        var array = [1, 1, '1', '1'];
+        console.log((unique(array)))
+    </script>
+</body>
+
+</html>

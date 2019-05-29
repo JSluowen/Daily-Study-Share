@@ -10,17 +10,32 @@
 
 <body>
     <script>
-        function ReverseList(pHead) {
-            var pre = null;
-            var next = null;
-            while (pHead != null) {
-                next = pHead.next;
-                pHead.next = pre;
-                pre = pHead;
-                pHead = next;
+        var pHead = {
+            "id": 1,
+            "next": {
+                "id": 2,
+                "next": {
+                    "id": 3,
+                    "next": {
+                        "id": 4,
+                        "next": null
+                    }
+                }
             }
-            return pre;
         }
+
+function ReverseList(pHead) {
+    var pre = null;
+    var next = null;
+    while (pHead != null) {
+        next = pHead.next;
+        pHead.next = pre;
+        pre = pHead;
+        pHead = next;
+    }
+    return pre;
+}
+        console.log(ReverseList(pHead))
     </script>
 </body>
 

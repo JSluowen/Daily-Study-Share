@@ -10,18 +10,18 @@
 
 <body>
     <script>
-        Function.prototype.myApply = function (context) {
-            context = context || window;
-            context.fn = this;
-            let result;
-            if (arguments[1]) {
-                result = context.fn(...arguments[1])
-            } else {
-                result = context.fn();
-            }
-            delete context;
-            return result;
-        }
+Function.prototype.myApply = function (context) {
+    context = context || window;
+    context.fn = this;
+    let result;
+    if (arguments[1]) {
+        result = context.fn(...arguments[1])
+    } else {
+        result = context.fn();
+    }
+    delete context;
+    return result;
+}
         var Person = function (name, age) {
             this.name = name;
             this.age = age;

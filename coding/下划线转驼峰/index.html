@@ -12,12 +12,13 @@
     <script>
         function camelCase(string) {
             // Support: IE9-11+
-            return string.replace(/([A-Z])/g, function (all, letter) {
-                console.log(all);
-                return"_"+letter.toUpperCase();
+            return string.replace(/_([a-z])/g, function (all, letter) {
+                console.log(arguments);
+                console.log(letter);
+                return letter.toUpperCase();
             });
         }
-        console.log(camelCase('helloVueText'))
+        console.log(camelCase('hello_vue_text'))
     </script>
 </body>
 

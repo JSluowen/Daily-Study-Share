@@ -7,20 +7,42 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-        .father {
-            display: -webkit-box;
-            -webkit-box-orient: vertical;
-            -webkit-line-clamp: 3;
-            overflow: hidden;
-        }
     </style>
 </head>
 
 <body>
-    <div class="father">
-        <input type="text">
-    </div>
+    <script>
+        var Head = (function () {
+            function HeadClass() {}
+            var instance;
+            return function () {
+                if (instance) {
+                    return instance
+                }
+                instance = new HeadClass();
+                return instance
+            }
+        })()
+        var a = new Head();
+        var b = new Head();
+        console.log(a === b);
 
+        // var HeadClass = function () {};
+        // var Head = (function () { // 匿名自执行函数
+        //     var instance; // 声明一个instance对象
+        //     return function () {
+        //         if (instance) { // 如果已存在 则返回instance
+        //             return instance;
+        //         }
+        //         instance = new HeadClass() // 如果不存在 则new一个HeadClass对象
+        //         return instance;
+        //     }
+        // })();
+        // debugger;
+        // var a = new Head();
+        // var b = new Head();
+        // console.log(a === b) // true
+    </script>
 </body>
 
 </html>

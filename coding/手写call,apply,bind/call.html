@@ -11,9 +11,6 @@
 <body>
     <script>
         Function.prototype.mycall = function (context) {
-            if (typeof this !== 'function') {
-                throw new TypeError('这不是一个函数');
-            }
             context = context || window;
             var args = [...arguments].splice(1);
             context.fn = this;
@@ -27,6 +24,7 @@
             this.age = age;
         };
         var Girl = function (name, age) {
+            debugger;
             Person.mycall(this, name, age);
         };
         var g1 = new Girl('lisi', 29)

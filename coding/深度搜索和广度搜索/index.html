@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var tree = {
+            "id": 1,
+            "left": {
+                "id": 2,
+                "left": {
+                    "id": 4
+                },
+                "right": {
+                    "id": 5
+                }
+            },
+            "right": {
+                "id": 3,
+                "left": {
+                    "id": 6
+                },
+                "right": {
+                    "id": 7
+                }
+            }
+        }
+        // 广度优先搜索
+        // 1. 从左往右一次遍历，层次遍历
+        function bfs(tree) {
+            let queue = [];
+            var result = [];
+            var flag = true;
+            queue.unshift(tree);
+            while (queue.length !== 0) {
+                var node = queue.shift();
+                result.push(node.id);
+                if (node.left) queue.push(node.left);
+                if (node.right) queue.push(node.right);
+            }
+            return result;
+        }
+
+        // 1. 二叉树的蛇形遍历
+        function bfs(root) {
+            let stack1 = [];
+            let stack2 = [];
+            let result = [];
+            var flag = true;
+            stack1.push(root)
+            while (1) {
+                if (flag) {
+                    while (stack1.length !== 0) {
+                        var node = stack1.pop();
+                        result.push(node.id);
+                        if (node.left) stack2.push(node.left);
+                        if (node.right) stack2.push(node.right);
+                    }
+                    flag = flag ? false : true
+                    if (stack2.length == 0) {
+                        break;
+                    }
+                } else {
+                    while (stack2.length !== 0) {
+                        var node = stack2.pop();
+                        result.push(node.id);
+                        if (node.right) stack1.push(node.right);
+                        if (node.left) stack1.push(node.left);
+
+                    }
+                    flag = flag ? false : true
+                    if (stack1.length == 0) {
+                        break;
+                    }
+                }
+            }
+            return result;
+        }
+        console.log(bfs(tree));
+    </script>
+</body>
+
+</html>

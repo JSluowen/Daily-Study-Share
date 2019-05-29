@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+// 防抖：指的是在触发事件N秒内函数只执行一次，如果在n秒内又触发了事件，那么就会重新计算这个时间
+function debounce(fn, wait, immidate) {
+    let timeout;
+    return function () {
+        let context = this;
+        let args = arguments;
+        if (timeout) clearTimeout(timeout);
+        if (immidate) {
+            let callNow = !timeout;
+            timeout = setTimeout(function () {
+                timeout = null;
+            }, wait)
+            if (callNow) fn.apply(context, args)
+        } else {
+            timeout = setTimeout(function () {
+                fn.apply(contetn, args);
+            }, wait)
+        }
+    }
+}
+
+// 节流：每隔指定的时间，事件只执行一次
+// 时间戳版
+function throttle(func, wait) {
+    var previous = 0;
+    return function () {
+        let now = +new Date();
+        let context = this;
+        let args = arguments;
+        if (now - previous > wait) {
+            func.apply(context, args);
+            previous = now;
+        }
+    }
+}
+    </script>
+</body>
+
+</html>

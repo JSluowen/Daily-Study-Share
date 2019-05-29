@@ -169,7 +169,7 @@ promise:一种异步编程的解决方案
 
 ``` javascript
 var xhr = new XMLHttpRequest();
-xhr.open('get', 'aabb.php', true);
+xhr.open('get', 'aabb.php', true);// true 表示异步
 xhr.send(null);
 xhr.onreadystatechange = function() {
     if(xhr.readyState==4) {
@@ -182,12 +182,12 @@ xhr.onreadystatechange = function() {
 
 ## ajax返回的状态
 
-0 － （未初始化）还没有调用send()方法
+0 － （未初始化）对象已建立，还未调用open（）
 
-1 － （载入）已调用send()方法，正在发送请求
+1 － （初始化）对象已建立，还未调用send()
 
-2 － （载入完成）send()方法执行完成，已经接收到全部响应内容
+2 － （发送数据）send方法已发送
 
-3 － （交互）正在解析响应内容
+3 － （数据传输中）已接受到部分数据
 
-4 － （完成）响应内容解析完成，可以在客户端调用了
+4 － （响应结束）接受所有数据
