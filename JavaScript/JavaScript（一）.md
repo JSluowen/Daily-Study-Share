@@ -217,7 +217,7 @@ CORS：服务端设置Access-Control-Allow-Origin即可，前端无须设置，�
    function Cat(name){
      Animal.call(this);
      this.name = name || 'Tom';
-   }
+   }4
    Cat.prototype = new Animal();
    // 组合继承也是需要修复构造函数指向的。
    Cat.prototype.constructor = Cat;

@@ -7,36 +7,29 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+<style>
+    .a {
+        overflow: hidden;
+        background-color: red;
+        display: flex;
+    }
+
+    .b {
+        width: 100px;
+        height: 100px;
+        background-color: blue;
+        padding-bottom: 9999px;
+        margin-bottom: -9999px;
+    }
+</style>
 
 <body>
-    <script type="text/javascript">
-        var sUrl = 'http://www.nowcoder.com?key=1&key=2&key=3&test=4#hehe';
-        function fun(sUrl, skey) {
-            var start = sUrl.indexOf('?');
-            var end = sUrl.indexOf('#');
-            var newUrl = sUrl.substring(start + 1, end);
-            var arr = newUrl.split('&');
-            var newArr = arr.map(item => {
-                var jsonArr = item.split('=');
-                var key = jsonArr[0];
-                var value = jsonArr[1];
-                var json = {};
-                json['key'] = key;
-                json['value'] = value
-                return json
-            })
-            var newValue = [];
-            if (skey == undefined) {
-                for (let item of newArr) {
-                    newValue.push(item.value * 1)
-                }
-            } else {
-                i
-            }
-            console.log(newValue)
-        }
-        fun(sUrl, 'key')
-    </script>
+    <div class="a">
+        <div class="b">
+            <br>
+        </div>
+        <div class="b2"></div>
+    </div>
 </body>
 
 </html>

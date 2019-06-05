@@ -75,7 +75,7 @@ display:none;  visibility:hidden;  opacity: 0;  clip-path: polygon(100% 100%);  
 
 Block是块级元素，其前后都会有换行符，能设置宽度，高度，margin/padding水平垂直方向都有效。
 
-Inline：设置width和height无效，margin在竖直方向上无效，padding在水平方向垂直方向都有效，前后无换行符
+Inline：设置width和height无效，margin,padding在竖直方向上无效,在水平方向有效，前后无换行符
 
 Inline-block：能设置宽度高度，margin/padding水平垂直方向 都有效，前后无换行符
 

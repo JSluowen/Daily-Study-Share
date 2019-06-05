@@ -2,7 +2,6 @@
 
 ```javascript
 function sleep(d){
-    console.log('start')
     var t = Date.now();
     while(Date.now()- t <= d);
 } 
