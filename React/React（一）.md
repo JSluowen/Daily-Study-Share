@@ -103,3 +103,12 @@ React合成事件一套机制：React并不是将click事件直接绑定在dom�
 
 [React之diff算法](https://www.jianshu.com/p/3ba0822018cf)
 
+## React Hooks
+
+1. 它简化操作，让我们无需类就可以使用React的更多特性，是的react的组件更加趋近于函数。
+2. 让我们能够在不改变组件的层次结构的基础上重用组件的状态逻辑。
+
+## React的性能优化
+
+
+
