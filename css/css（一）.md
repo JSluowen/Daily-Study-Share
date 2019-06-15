@@ -117,3 +117,21 @@ background-color设置的背景颜色会填充元素的content、padding、borde
 3. 对于多次重排的元素，比如说动画。使用绝对定位脱离文档流，使其不影响其他元素
 4. 千万不要使用 table 布局。因为可能很小的一个小改动会造成整个 table 的重新布局。
 
+## CSS3新增了很多的属性
+
+1. CSS3边框：
+
+   - border-radius：CSS3圆角边框。
+
+   - box-shadow：CSS3边框阴影
+   - border-image：CSS3边框图片
+
+2. CSS3背景：
+
+   - background-size： 属性规定背景图片的尺寸
+   - background-origin ：属性规定背景图片的定位区域
+
+3. CSS3文字效果：
+
+   - text-shadow： 可向文本应用阴影
+   - word-wrap :单词太长的话就可能无法超出某个区域，允许对长单词进行拆分

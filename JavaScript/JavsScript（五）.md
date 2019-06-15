@@ -1,4 +1,4 @@
-## 设计模式
+## 1. 设计模式
 
 单例模式： 保证一个类仅有一个实例，并提供一个访问他的全局访问点例如框架中的数据库连接
 
@@ -15,11 +15,11 @@
 
 迭代器模式： 提供一个方法顺序访问一个聚合对象中各个元素。
 
-## web socket and web worker
+## 2. web socket and web worker
 
 > web socket提供更高效的传输协议，web worker提供多线程提高web应用计算效率
 
-## Web Socket
+## 3. Web Socket
 
 > 
 >
@@ -35,7 +35,7 @@ URL前缀是`wss://` 加密传输
 >
 > worker的主线程和子线程间通过postMessage()来发送消息，通过向 web worker 添加一个 "onmessage" 事件监听器来获取接受到的消息。
 
-## Js中String Array Math内部常用的方法
+## 4. Js中String Array Math内部常用的方法
 
 ### String
 
@@ -77,7 +77,7 @@ URL前缀是`wss://` 加密传输
    ### Math
    ceil floor max min pow round random
 
-## js中new和object.create区别
+## 5. js中new和object.create区别
 
 | 比较     | new                     | Object.create           |
 | -------- | ----------------------- | ----------------------- |
@@ -85,7 +85,7 @@ URL前缀是`wss://` 加密传输
 | 原型链   | 原构造函数prototype属性 | 原构造函数/（对象）本身 |
 | 作用对象 | function                | function和object        |
 
-## BOM对象
+## 6. BOM对象
 
 **window 对象，是 JS 的最顶层对象，其他的 BOM 对象都是 window 对象的属性；**
 
@@ -117,27 +117,27 @@ URL前缀是`wss://` 加密传输
    >
    > history.forward() - 加载历史列表中的下一个 URL。返回下一页。                                                                                             go(“参数”) -1表示上一页，1表示下一页。
 
-## 什么是元编程
+## 7. 什么是元编程
 
 > 能“介入”的对象底层操作进行的过程中，并加以影响。元编程中的 元 的概念可以理解为 程序 本身。”元编程能让你拥有可以扩展程序自身能力“
 >
 > 参考 : [怎么理解元编程](<https://www.zhihu.com/question/23856985> )
 
-## Reflect 和 Proxy 
+## 8. Reflect 和 Proxy 
 
 ### Reflect 
 
 Reflect 是一个内置对象，它提供了拦截JavaScript操作的方法，他自身没有构造函数，不能与new操作符一起使用，或者将其作为一个对象来调用。它的所有属性和方法都是静态的。
 
-## forEach()能够中断吗
+## 9. forEach()能够中断吗
 
 不能中断，只能抛出异常，这样的话，forEach是错误的
 
-## 函数提升要比变量提升
+## 10. 函数提升要比变量提升
 
 函数提升要比变量提升的优先级要高一些，且不会被变量声明覆盖，但是会被变量赋值之后覆盖。
 
-## fetch和ajax**的认识和区别**
+## 11. fetch和ajax**的认识和区别**
 
 **fetch**：
 
@@ -149,3 +149,16 @@ A**ajax**:
 
 1. 是XMLHTTPRequest的一个实例
 2. 只有当状态为200或者304时才会请求成功
+
+## 12. ES5/ES6 的继承除了写法以外还有什么区别
+
+ES5 和 ES6 子类 `this` 生成顺序不同。ES5 的继承先生成了子类实例，再调用父类的构造函数修饰子类实例，ES6 的继承先生成父类实例，再调用子类的构造函数修饰父类实例。这个差别使得 ES6 可以继承内置对象。
+
+##  ES6中 class有什么特性
+
+1.  class的声明的类名会有暂时性死去，类似const 和let
+2. class 声明内部开启了严格模式
+3. class中的所有方法包括静态方法和实例方法，都是不可枚举的。
+4. class的所有方法（包括静态方法和实例方法）都没有原型对象，也没有constructor,不能使用new来调用。
+5. class必须使用new来调用，不能直接写类名。
+6. class内部无法重写类名。
