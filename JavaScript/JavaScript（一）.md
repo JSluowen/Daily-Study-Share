@@ -1,12 +1,12 @@
 ## 事件流
 
-1. 事件流描述的是从页面中接收事件的顺序,DOM2级事件流包括下面几个阶段。
+事件流描述的是从页面中接收事件的顺序,DOM2级事件流包括下面几个阶段。
 
-   事件捕获阶段
+事件捕获阶段
 
-   处于目标阶段
+处于目标阶段
 
-   事件冒泡阶段
+事件冒泡阶段
 
 ## 事件委托
 
@@ -228,14 +228,7 @@ CORS：服务端设置Access-Control-Allow-Origin即可，前端无须设置，�
 6. 寄生组合继承：通过寄生方式，砍掉父类的实例属性，这样，在调用两次父类构造的时候，就不会初始化两次实例方法/属性，避免的组合继承的缺点
 
    ```javascript
-     function inherit(sub, sup) {
-           var pro = Object(sup.prototype);
-           console.log(pro)
-           pro.constructor = sub;
-           sub.prototype = pro;
-       }
-   
-       function Super(name) {
+   	function Super(name) {
            this.name = name;
            this.colors = ['red', 'blue'];
        }
@@ -246,6 +239,10 @@ CORS：服务端设置Access-Control-Allow-Origin即可，前端无须设置，�
        function Sub(name, age) {
            Super.call(this, name);
            this.age = age;
+       }
+     function inherit(sub, sup) {
+           sub.prototype = Object.create(sup.prototype);
+           sub.prototype.constructor = sub;
        }
        inherit(Sub, Super);
        Sub.prototype.sayAge = function () {
