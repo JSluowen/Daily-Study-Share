@@ -1,4 +1,4 @@
-## 1. 设计模式
+### 1. 设计模式
 
 单例模式： 保证一个类仅有一个实例，并提供一个访问他的全局访问点例如框架中的数据库连接
 
@@ -15,11 +15,11 @@
 
 迭代器模式： 提供一个方法顺序访问一个聚合对象中各个元素。
 
-## 2. web socket and web worker
+### 2. web socket and web worker
 
 > web socket提供更高效的传输协议，web worker提供多线程提高web应用计算效率
 
-## 3. Web Socket
+ Web Socket
 
 > 
 >
@@ -29,15 +29,15 @@ URL前缀是`ws://` 不加密传输
 
 URL前缀是`wss://` 加密传输
 
-### web worker
+web worker
 
 > web worker 是运行在后台的 JavaScript，独立于其他脚本，不会影响页面的性能。您可以继续做任何愿意做的事情：点击、选取内容等等，而此时 web worker 在后台运行。
 >
 > worker的主线程和子线程间通过postMessage()来发送消息，通过向 web worker 添加一个 "onmessage" 事件监听器来获取接受到的消息。
 
-## 4. Js中String Array Math内部常用的方法
+### 4. Js中String Array Math内部常用的方法
 
-### String
+String
 
 1. charAt():返回指定位置的字符
 2. concat() 连接两个或多个字符
@@ -47,9 +47,7 @@ URL前缀是`wss://` 加密传输
 6. replace()：替换与正则表达式匹配的子串
 7. split()：把字符串分割为子字符串数组
 
-
-
-### Array
+Array
 
 1. concat() 用于连接两个或多个数组。
 
@@ -74,10 +72,11 @@ URL前缀是`wss://` 加密传输
    替换：(起始位置，要删除的项数，要插入的项)
    该方法始终返回一个数组，该数组中包含从原始数组中删除的项。
 
-   ### Math
+   Math
+   
    ceil floor max min pow round random
 
-## 5. js中new和object.create区别
+5. js中new和object.create区别
 
 | 比较     | new                     | Object.create           |
 | -------- | ----------------------- | ----------------------- |
@@ -85,7 +84,7 @@ URL前缀是`wss://` 加密传输
 | 原型链   | 原构造函数prototype属性 | 原构造函数/（对象）本身 |
 | 作用对象 | function                | function和object        |
 
-## 6. BOM对象
+### 6. BOM对象
 
 **window 对象，是 JS 的最顶层对象，其他的 BOM 对象都是 window 对象的属性；**
 
@@ -117,27 +116,27 @@ URL前缀是`wss://` 加密传输
    >
    > history.forward() - 加载历史列表中的下一个 URL。返回下一页。                                                                                             go(“参数”) -1表示上一页，1表示下一页。
 
-## 7. 什么是元编程
+### 7. 什么是元编程
 
 > 能“介入”的对象底层操作进行的过程中，并加以影响。元编程中的 元 的概念可以理解为 程序 本身。”元编程能让你拥有可以扩展程序自身能力“
 >
 > 参考 : [怎么理解元编程](<https://www.zhihu.com/question/23856985> )
 
-## 8. Reflect 和 Proxy 
+### 8. Reflect 和 Proxy 
 
-### Reflect 
+**Reflect** 
 
 Reflect 是一个内置对象，它提供了拦截JavaScript操作的方法，他自身没有构造函数，不能与new操作符一起使用，或者将其作为一个对象来调用。它的所有属性和方法都是静态的。
 
-## 9. forEach()能够中断吗
+### 9. forEach()能够中断吗
 
 不能中断，只能抛出异常，这样的话，forEach是错误的
 
-## 10. 函数提升要比变量提升
+### 10. 函数提升要比变量提升
 
 函数提升要比变量提升的优先级要高一些，且不会被变量声明覆盖，但是会被变量赋值之后覆盖。
 
-## 11. fetch和ajax**的认识和区别**
+### 11. fetch和ajax**的认识和区别**
 
 **fetch**：
 
@@ -150,11 +149,11 @@ A**ajax**:
 1. 是XMLHTTPRequest的一个实例
 2. 只有当状态为200或者304时才会请求成功
 
-## 12. ES5/ES6 的继承除了写法以外还有什么区别
+### 12. ES5/ES6 的继承除了写法以外还有什么区别
 
 ES5 和 ES6 子类 `this` 生成顺序不同。ES5 的继承先生成了子类实例，再调用父类的构造函数修饰子类实例，ES6 的继承先生成父类实例，再调用子类的构造函数修饰父类实例。这个差别使得 ES6 可以继承内置对象。
 
-##  ES6中 class有什么特性
+### 13.ES6中 class有什么特性
 
 1.  class的声明的类名会有暂时性死去，类似const 和let
 2. class 声明内部开启了严格模式
@@ -162,3 +161,13 @@ ES5 和 ES6 子类 `this` 生成顺序不同。ES5 的继承先生成了子类�
 4. class的所有方法（包括静态方法和实例方法）都没有原型对象，也没有constructor,不能使用new来调用。
 5. class必须使用new来调用，不能直接写类名。
 6. class内部无法重写类名。
+
+### 14. Js获取盒模型的宽高
+
+1. clientWidth 内容宽度 + 左右padding
+   clientHeight 内容高度 + 上下padding
+2. clientLeft 左边框
+   clientTop 上边框
+3. offsetWidth = clientWidth(内容宽+左右padding) + 左右边框
+   offsetHeight = clientHeight(内容高+上下padding) + 上下边框
+
