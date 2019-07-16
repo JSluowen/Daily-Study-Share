@@ -155,11 +155,10 @@ rest参数：用于获取函数的多余参数，这样就不需要使用argumen
 
 > **Rest参数和arguments对象的区别**
 >
-> - est参数只包括那些没有给出名称的参数，arguments包含所有参数
+> - Rest参数只包括那些没有给出名称的参数，arguments包含所有参数
 > - arguments 对象不是真正的数组，而rest 参数是数组实例，可以直接应用sort, map, forEach, pop等方法
 > - arguments 对象拥有一些自己额外的功能
 >
-> ​	
 
 promise:一种异步编程的解决方案
 

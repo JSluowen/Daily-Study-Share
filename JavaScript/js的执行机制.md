@@ -13,7 +13,7 @@
 1. 宏任务（macrotask）：主代码块、setTimeout、setInterval
 2. 微任务（microtask）：Promise、process.nextTick
 
-原理：在某一个macrotask执行完后，在重新渲染与开始下一个宏任务之前，就会将在它执行期间产生的所有microtask都执行完毕（在渲染前）
+原理：在某一个 macrotask 执行完后，在重新渲染与开始下一个宏任务之前，就会将在它执行期间产生的所有microtask都执行完毕（在渲染前）;
 
 
 

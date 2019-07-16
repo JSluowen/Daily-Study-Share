@@ -171,3 +171,18 @@ ES5 和 ES6 子类 `this` 生成顺序不同。ES5 的继承先生成了子类�
 3. offsetWidth = clientWidth(内容宽+左右padding) + 左右边框
    offsetHeight = clientHeight(内容高+上下padding) + 上下边框
 
+### 15. Object.prototype.toString.call() 、 instanceof 
+
+1. Object.prototype.toString.call()
+
+   每一个对象都具有 toString 方法，如果 toString  没有被重写，那么它会返回 [object type] , type 是对象的基本类型 , 除了 object 类型的对象外，其他类型的对象调用 toString 方法会返回内容的字符串，所以我们需要使用 call 方法来改变 toString 方法的执行上文。
+
+   这种方法对于所有的基本类型都能进行判断，即使是 null 和 undefined。
+
+2. instanceof 
+
+   它的内部执行机制是通过判断对象原型链上是否能找到类型的 prototype。
+
+   例如判断一个对象是否是一个数组， instanceof 会判断这个对象的原型链上是否会找到 对应的Array ，找到返回 true , 否则返回 false 。
+
+   instanceof 只能用来判断对象类型，而不能判断基本类型。
