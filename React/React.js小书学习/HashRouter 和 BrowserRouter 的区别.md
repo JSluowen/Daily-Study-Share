@@ -1,4 +1,4 @@
-## **HashRouter**
+##  **HashRouter**
 
 它使用URL的哈希部分（即`window.location.hash`）来保持页面的UI与URL同步。
 
@@ -10,7 +10,7 @@
 
 ## 区别
 
-### url上表现不一致
+### url上表现不一致q33
 
 1. BrowserRouter使用HTML5 history API，保证UI界面和URL保存同步
 2.  HashRouter使用URL（即window.location.hash）的哈希部分来保持UI与URL同步的。哈希历史记录不支持

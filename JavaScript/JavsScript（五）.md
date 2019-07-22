@@ -186,3 +186,20 @@ ES5 和 ES6 子类 `this` 生成顺序不同。ES5 的继承先生成了子类�
    例如判断一个对象是否是一个数组， instanceof 会判断这个对象的原型链上是否会找到 对应的Array ，找到返回 true , 否则返回 false 。
 
    instanceof 只能用来判断对象类型，而不能判断基本类型。
+
+### [ 关于null是不是等于0问题的探讨](https://www.php.cn/js-tutorial-374755.html)
+
+```javascript
+console.log(null > 0);   // false
+
+console.log(null < 0);   // false
+
+console.log(null >= 0);   // true
+
+console.log(null <= 0);   // true
+
+console.log(null == 0);   // false
+
+console.log(null === 0);    // false
+```
+
