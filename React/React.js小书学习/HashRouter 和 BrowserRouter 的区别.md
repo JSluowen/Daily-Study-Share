@@ -10,7 +10,7 @@
 
 ## 区别
 
-### url上表现不一致q33
+### url上表现不一致
 
 1. BrowserRouter使用HTML5 history API，保证UI界面和URL保存同步
 2.  HashRouter使用URL（即window.location.hash）的哈希部分来保持UI与URL同步的。哈希历史记录不支持
