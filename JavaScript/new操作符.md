@@ -58,11 +58,9 @@ function create(Con, ...args) {
 
 function objectFactory(){
     let obj = {}
-    const construcror = [].shift.call(arguments)
-    console.log(construcror)
+    const construcror = [].shift.call(arguments) // 获取第一个参数，也就是源函数
     obj._proto_ = construcror.prototype;
     const res = construcror.apply(obj,arguments);
-    console.log(typeof obj)
     return typeof res === 'object'?res:obj;
 }
 ```
