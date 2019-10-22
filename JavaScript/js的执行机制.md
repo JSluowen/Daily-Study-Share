@@ -4,10 +4,6 @@
 
 ## Event Loop 流程图
 
-![img](https://user-gold-cdn.xitu.io/2018/11/23/16740fa4cd9c6937?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
-
-
-
 ### 宏任务 和 微任务
 
 1. 宏任务（macrotask）：主代码块、setTimeout、setInterval
@@ -18,8 +14,6 @@
 
 
 ## Node的执行机制
-
-![img](https://user-gold-cdn.xitu.io/2018/11/13/1670c3fe3f9a5e2b?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)、
 
 ### timer
 
@@ -59,9 +53,8 @@ close callbacks 阶段执行 close 事件
 
 上面介绍的都是 macrotask 的执行情况，对于 microtask 来说，它会在以上每个阶段完成前**清空**microtask 队列
 
-![img](https://user-gold-cdn.xitu.io/2018/11/14/16710fb80dd42d27?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
-
 ### 参考文献
 
 [这一次，彻底弄懂 JavaScript 执行机制](https://juejin.im/post/59e85eebf265da430d571f89)
 
+[Node的执行机制和浏览器的执行机制](https://juejin.im/post/5c337ae06fb9a049bc4cd218#heading-12)

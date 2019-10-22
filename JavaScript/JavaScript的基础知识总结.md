@@ -153,7 +153,7 @@ CORS：服务端设置Access-Control-Allow-Origin即可，前端无须设置，�
 
 用JavaScript 对象结构表示 DOM 树的结构；然后用这个树构建一个真正的 DOM 树，插到文档当中 当状态变更的时候，重新构造一棵新的对象树。然后用新的树和旧的树进行比较，记录两棵树差异 把所记录的差异应用到所构建的真正的DOM树上，视图就更新了。Virtual DOM 本质上就是在 JS 和 DOM 之间做了一个缓存。
 
-### 18.JS中继承实现的几种方式
+### 18.JS中的继承
 
 1. 原型链继承，原型链继承简单易于实现，缺点是来自原型对象的所有属性被所有实例共享，无法实现多继承
 
@@ -379,11 +379,11 @@ Promise是一个对象，保存着未来将要结束的事件
 3. 基本数据类型的比较是值的比较，引用类型的比较是引用的比较，比较对象的内存地址是否相同
 4. 基本类型使用typeof操作符确定类型，引用类型使用instanceof 确定类型
 
-## NaN是什么的缩写
+### NaN是什么的缩写
 
 NaN是JS中的特殊值，表示非数字，NaN不是数字，但是他的数据类型是数字，它不等于任何值，包括自身，在布尔运算时被当做false。
 
-## JS的作用域类型
+### JS的作用域类型
 
 **函数作用域**，如果在函数内部我们给未定义的一个变量赋值，这个变量会转变成为一个全局变量
 
@@ -394,13 +394,13 @@ NaN是JS中的特殊值，表示非数字，NaN不是数字，但是他的数据
 1. eval（），这个方法接受一个字符串作为参数，并将其中的内容视为可执行的代码
 2. with关键字：通常被当做重复引用同一个对象的多个属性的快捷方式
 
-## 怎么获得对象上的属性
+### 怎么获得对象上的属性
 
 1. for（let I in obj）该方法依次访问一个对象及其原型链中所有可枚举的类型
 2. Object.keys（）:返回一个数组，包括所有可枚举的属性名称
 3. Object.getOwnPropertyNames:返回一个数组包含不可枚举的属性
 
-## 简单讲一讲ES6的一些新特性
+### 简单讲一讲ES6的一些新特性
 
 1. 声明和定义增加了 let 和 const
 2. 字符串方面增加了模板字符串，赋值中有比较吸引人的结构赋值
@@ -424,7 +424,7 @@ promise:一种异步编程的解决方案
 
 模块化：其模块功能主要有两个命令构成，export和import
 
-## 写出原生Ajax
+### 写出原生Ajax
 
 ```javascript
 var xhr = new XMLHttpRequest();
@@ -439,7 +439,7 @@ xhr.onreadystatechange = function() {
 }
 ```
 
-## ajax返回的状态
+### ajax返回的状态
 
 0 － （未初始化）对象已建立，还未调用open（）
 
@@ -451,7 +451,7 @@ xhr.onreadystatechange = function() {
 
 4 － （响应结束）接受所有数据
 
-## 数组扁平化
+### 数组扁平化
 
 数组的扁平化，就是将一个嵌套多层的数组 array (嵌套可以是任何层数)转换为只有一层的数组。
 
@@ -518,7 +518,7 @@ function flatten(arr) {
 }
 ```
 
-## 实现sleep函数
+### 实现sleep函数
 
 ```javascript
 function sleep(d){
@@ -529,7 +529,7 @@ sleep(3000);
 console.log('end')
 ```
 
-## 怎么判断一个属性是否在对象中
+### 怎么判断一个属性是否在对象中
 
 **点( . )或者方括号( [ ] )**
 
@@ -568,9 +568,7 @@ test.hasOwnProperty('toString')    //false  原型链上属性
 
 > 　可以看到，只有自身存在该属性时，才会返回true。适用于只判断自身属性的场景。
 
-
-
-## DOM节点操作
+### DOM节点操作
 
 **创建节点**
 
@@ -600,19 +598,19 @@ var cEle = oldEle.cloneNode(true);*//深度复制，复制节点下面所有的�
 
 cEle = oldEle.cloneNode(false);*//只复制当前节点，不复制子节点*
 
-## 正则贪婪模式匹配 非贪婪模式匹配 
+### 正则贪婪模式匹配 非贪婪模式匹配 
 
 > 贪婪模式在整个表达式匹配成功的前提下，尽可能多的匹配，而非贪婪模式在整个表达式匹配成功的前提下，尽可能少的匹配
 
-## FileReader
+### FileReader
 
 > `FileReader` 对象允许Web应用程序异步读取存储在用户计算机上的文件（或原始数据缓冲区）的内容，使用 [`File`](https://developer.mozilla.org/zh-CN/docs/Web/API/File) 或 [`Blob`](https://developer.mozilla.org/zh-CN/docs/Web/API/Blob) 对象指定要读取的文件或数据。
 
-## Base64编码的原理
+### Base64编码的原理
 
 Base64可以将ASCII字符串或者是二进制编码成只包含A—Z，a—z，0—9，+，/ 这64个字符（ 26个大写字母，26个小写字母，10个数字，1个+，一个 / 刚好64个字符）。
 
-## Promise.all() 和 Promise.race() 
+### Promise.all() 和 Promise.race() 
 
 **Promise.all()**
 
@@ -657,7 +655,7 @@ Promise.race([fun1, fun2]).then(function(result) {
 });
 ```
 
-### 1. 设计模式
+###  设计模式
 
 单例模式： 保证一个类仅有一个实例，并提供一个访问他的全局访问点例如框架中的数据库连接
 
@@ -674,7 +672,7 @@ Promise.race([fun1, fun2]).then(function(result) {
 
 迭代器模式： 提供一个方法顺序访问一个聚合对象中各个元素。
 
-### 2. web socket and web worker
+### web socket and web worker
 
 > web socket提供更高效的传输协议，web worker提供多线程提高web应用计算效率
 
@@ -694,7 +692,7 @@ web worker
 >
 > worker的主线程和子线程间通过postMessage()来发送消息，通过向 web worker 添加一个 "onmessage" 事件监听器来获取接受到的消息。
 
-### 4. Js中String Array Math内部常用的方法
+###  Js中String Array Math内部常用的方法
 
 String
 
@@ -743,7 +741,7 @@ Array
 | 原型链   | 原构造函数prototype属性 | 原构造函数/（对象）本身 |
 | 作用对象 | function                | function和object        |
 
-### 6. BOM对象
+### BOM对象
 
 **window 对象，是 JS 的最顶层对象，其他的 BOM 对象都是 window 对象的属性；**
 
@@ -775,27 +773,27 @@ Array
    >
    > history.forward() - 加载历史列表中的下一个 URL。返回下一页。                                                                                             go(“参数”) -1表示上一页，1表示下一页。
 
-### 7. 什么是元编程
+### 什么是元编程
 
 > 能“介入”的对象底层操作进行的过程中，并加以影响。元编程中的 元 的概念可以理解为 程序 本身。”元编程能让你拥有可以扩展程序自身能力“
 >
 > 参考 : [怎么理解元编程](<https://www.zhihu.com/question/23856985> )
 
-### 8. Reflect 和 Proxy 
+### Reflect 和 Proxy 
 
 **Reflect** 
 
 Reflect 是一个内置对象，它提供了拦截JavaScript操作的方法，他自身没有构造函数，不能与new操作符一起使用，或者将其作为一个对象来调用。它的所有属性和方法都是静态的。
 
-### 9. forEach()能够中断吗
+### forEach()能够中断吗
 
 不能中断，只能抛出异常，这样的话，forEach是错误的
 
-### 10. 函数提升要比变量提升
+###  函数提升要比变量提升
 
 函数提升要比变量提升的优先级要高一些，且不会被变量声明覆盖，但是会被变量赋值之后覆盖。
 
-### 11. fetch和ajax**的认识和区别**
+###  fetch和ajax**的认识和区别**
 
 **fetch**：
 
@@ -808,11 +806,11 @@ A**ajax**:
 1. 是XMLHTTPRequest的一个实例
 2. 只有当状态为200或者304时才会请求成功
 
-### 12. ES5/ES6 的继承除了写法以外还有什么区别
+### ES5/ES6 的继承除了写法以外还有什么区别
 
 ES5 和 ES6 子类 `this` 生成顺序不同。ES5 的继承先生成了子类实例，再调用父类的构造函数修饰子类实例，ES6 的继承先生成父类实例，再调用子类的构造函数修饰父类实例。这个差别使得 ES6 可以继承内置对象。
 
-### 13.ES6中 class有什么特性
+### ES6中 class有什么特性
 
 1. class的声明的类名会有暂时性死去，类似const 和let
 2. class 声明内部开启了严格模式
@@ -821,7 +819,7 @@ ES5 和 ES6 子类 `this` 生成顺序不同。ES5 的继承先生成了子类�
 5. class必须使用new来调用，不能直接写类名。
 6. class内部无法重写类名。
 
-### 14. Js获取盒模型的宽高
+###  Js获取盒模型的宽高
 
 1. clientWidth 内容宽度 + 左右padding
    clientHeight 内容高度 + 上下padding
@@ -830,7 +828,7 @@ ES5 和 ES6 子类 `this` 生成顺序不同。ES5 的继承先生成了子类�
 3. offsetWidth = clientWidth(内容宽+左右padding) + 左右边框
    offsetHeight = clientHeight(内容高+上下padding) + 上下边框
 
-### 15. Object.prototype.toString.call()  
+###  Object.prototype.toString.call()  
 
 1. Object.prototype.toString.call()
 
@@ -846,7 +844,7 @@ ES5 和 ES6 子类 `this` 生成顺序不同。ES5 的继承先生成了子类�
 
    instanceof 只能用来判断对象类型，而不能判断基本类型。
 
-### 16. [ 关于null是不是等于0问题的探讨](https://www.php.cn/js-tutorial-374755.html)
+###  [ 关于null是不是等于0问题的探讨](https://www.php.cn/js-tutorial-374755.html)
 
 ```javascript
 console.log(null > 0);   // false
@@ -862,3 +860,20 @@ console.log(null == 0);   // false
 console.log(null === 0);    // false
 ```
 
+### 为什么前端监控要用GIF打点
+
+**前端监控是什么？**
+
+web页面将用户一些信息上传给服务器，向服务器上传信息的方式通常可以采用，接口，文件，图片的方式。
+
+**为什么不采用接口的方式**
+
+一般打点的域名都不是当前的域名，接口的请求就会产生跨域。
+
+**为什么不采用文件**
+
+由于浏览器的特性，创建资源节点只要将其插入DOM树，浏览器才会实际发送资源的请求。但是操作DOM结构会严重影响性能，同时加载js/css 文件会阻塞页面的渲染。
+
+**为什么采用gif，而不是png，jpeg图片呢**
+
+主要原因就是体积大小。
