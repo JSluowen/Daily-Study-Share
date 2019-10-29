@@ -30,7 +30,10 @@ Docker 属于Linux容器的一种封装，提供简单易用的容器使用接�
   > - `/bin/bash`：容器启动以后，内部第一个执行的命令。这里是启动 Bash，保证用户可以使用 Shell。
 
 + **cat /etc/hosts** // 在容器内部运行，查看容器运行的IP地址
+
 + **docker inspect 【containerId】**。// 在容器外运行，查看运行容器的详细信息
+
++ 
 
 ### 3.通过 FTP 查看运行容器的目录结构
 
