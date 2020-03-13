@@ -1,8 +1,20 @@
 ## React Hooks 源码分析
 
-### useState
+### useState的浅分析 
 
 ![usestate](/Users/luowen/Documents/学习文档/Daily-Study-Share/static/usestate.png)
+
+### Hook定义
+
+1. **memoizedState:**指向当前渲染节点 Fiber, 上一次完整更新之后的最终状态值
+
+2. **baseState：**初始化 initialState， 以及每次 dispatch 之后 newState
+
+3. **baseQueue：**当前需要更新的 Update ，每次更新完之后，会赋值上一个 update，方便 react 在渲染错误的边缘，数据回溯
+4. **next：**  链接到下一个 hooks
+5. **queue：** 缓存的更新队列，存储多次更新行为
+   1. **pending**: 保存最后一次更新逻辑, 即状态值和下一次 Update
+   2. **dispatch**: 更新行为
 
 ### queue 队列更新逻辑
 
